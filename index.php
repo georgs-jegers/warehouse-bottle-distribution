@@ -26,27 +26,27 @@ class Warehouse {
     public function getAvailableBottles($section) {
         return isset($this->sections[$section]) ? $this->sections[$section] : 0;
     }
-}
 
-function requestBottles($storeBottles) {
-    $warehouse = new Warehouse(array(
-        'section1' => 2,
-        'section2' => 5,
-        'section3' => 10
-    ));
+    public function requestBottles($storeBottles) {
+        $this->distributeBottlesEqually($storeBottles);
 
-    $warehouse->distributeBottlesEqually($storeBottles);
+        $total = 0;
 
-    $total = 0;
+        foreach ($this->sections as $section => $count) {
+            echo "Section $section: $count bottles\n";
+            $total += $count;
+        }
 
-    foreach ($warehouse->sections as $section => $count) {
-        echo "Section $section: $count bottles\n";
-        $total += $count;
+        echo "Total: $total bottles\n";
     }
-
-    echo "Total: $total bottles\n";
 }
 
-$storeBottles = 15;
-requestBottles($storeBottles);
+// Example usage
+$warehouse = new Warehouse(array(
+    'section1' => 2,
+    'section2' => 5,
+    'section3' => 10
+));
+
+$warehouse->requestBottles(1);
 ?>
