@@ -3,13 +3,13 @@ This PHP code defines a Warehouse class and a requestBottles function to distrib
 
 Example Usage
 ```shell
-$warehouse = new Warehouse(array(
+$warehouse = new Warehouse([
     'section1' => 2,
     'section2' => 5,
     'section3' => 10
-));
+]);
 
-$warehouse->dispatchBottles(1);
+$warehouse->shipmentBottles(11);
 ```
 
 Running the Code
