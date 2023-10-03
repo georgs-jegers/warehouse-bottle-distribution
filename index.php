@@ -1,12 +1,12 @@
 <?php
 class Warehouse {
-    public $sections;
+    public array $sections;
 
-    public function __construct($sections) {
+    public function __construct(array $sections) {
         $this->sections = $sections;
     }
 
-    public function distributeBottlesEqually($storeBottles) {
+    public function distributeBottlesEqually(int $storeBottles): void {
         $sectionCount = count($this->sections);
         $bottlesPerSection = floor($storeBottles / $sectionCount);
         $remainingBottles = $storeBottles % $sectionCount;
@@ -23,11 +23,11 @@ class Warehouse {
         }
     }
 
-    public function getAvailableBottles($section) {
+    public function getAvailableBottles(string $section): int {
         return isset($this->sections[$section]) ? $this->sections[$section] : 0;
     }
 
-    public function requestBottles($storeBottles) {
+    public function requestBottles(int $storeBottles): void {
         $this->distributeBottlesEqually($storeBottles);
 
         $total = 0;
@@ -42,11 +42,12 @@ class Warehouse {
 }
 
 // Example usage
-$warehouse = new Warehouse(array(
+$warehouse = new Warehouse([
     'section1' => 2,
     'section2' => 5,
     'section3' => 10
-));
+]);
 
 $warehouse->requestBottles(1);
+
 ?>
