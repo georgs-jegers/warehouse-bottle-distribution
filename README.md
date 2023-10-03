@@ -9,7 +9,7 @@ $warehouse = new Warehouse(array(
     'section3' => 10
 ));
 
-$warehouse->requestBottles(1);
+$warehouse->dispatchBottles(1);
 ```
 
 Running the Code
