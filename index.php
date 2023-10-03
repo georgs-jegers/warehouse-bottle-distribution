@@ -23,7 +23,7 @@ class Warehouse {
         }
     }
 
-    public function getAvailableBottles(string $section): int {
+    public function getAvailableWarehouseSectionSpaces(string $section): int {
         return isset($this->sections[$section]) ? $this->sections[$section] : 0;
     }
 
