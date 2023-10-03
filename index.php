@@ -27,7 +27,7 @@ class Warehouse {
         return isset($this->sections[$section]) ? $this->sections[$section] : 0;
     }
 
-    public function requestBottles(int $storeBottles): void {
+    public function dispatchBottles(int $storeBottles): void {
         $this->distributeBottlesEqually($storeBottles);
 
         $total = 0;
@@ -48,6 +48,6 @@ $warehouse = new Warehouse([
     'section3' => 10
 ]);
 
-$warehouse->requestBottles(1);
+$warehouse->dispatchBottles(1);
 
 ?>
